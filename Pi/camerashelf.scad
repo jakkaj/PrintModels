@@ -13,7 +13,7 @@
 // v2.0 22 JUN 2019 Revised to look like Mac Pro and Not attach to Prusa
 //===========================================================================
 
-//Adapted by Jordan Knight to be a shelf for the Pi 4. 
+//Adapted by Jordan Knight to be a external ssd shelf for the Pi 4. 
 
 
 
@@ -41,35 +41,30 @@ module outline(r=3){
    }
  }
 
-module EthSlotB(){
-  //height is 13.5;
-  JackWidth=16;
-  translate([BoardSize[0]-5, 2.25, PCBBase])
-  cube([10, JackWidth, 13]);
-}
+
 
 module USBSlotB(centerY){
   //height is 16;
-  JackWidth=13.35;
-  translate([BoardSize[0]-5, centerY-(JackWidth/2), PCBBase-2.5])
-  cube([10, JackWidth, 15]);
+  JackWidth=47;
+  translate([BoardSize[0]-2, centerY-(JackWidth/2), PCBBase-3.5])
+  cube([10, JackWidth, 8]);
 }
 
 
 module bottomShell() {
   
   difference(){
-    linear_extrude(baseHeight + 12) outline(5);
+    linear_extrude(baseHeight -5) outline(5);
     translate([0,0,baseThick]) 
-      linear_extrude(baseHeight + 10) outline(3.75); 
-    translate([0,0,-1]) 
+      linear_extrude(baseHeight - 7) outline(3.75); 
+    //translate([0,0,-1]) 
      // linear_extrude(baseHeight + 10) outline(3.75);
-    translate([-13,-10,-3])
+    translate([-15,-10,-3])
       cube([80, 80, 40]);
  
-    EthSlotB();
+    
     USBSlotB(29);
-    USBSlotB(47);   
+    
  
   }
 }
