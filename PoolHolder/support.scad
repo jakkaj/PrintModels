@@ -11,7 +11,7 @@ circleBulk=5;
 braceThickness=5;
 
 screwSpacing=25;
-screwStart=screwSpacing + circleBulk;
+screwStart=screwSpacing;
 
 m3Radius=1.5;
 
@@ -72,10 +72,10 @@ module screw(holeIndex = 0){
 
 }
 
-module headNub(){
+module headNub(r = nubRadius){
     $fn=50;
         linear_extrude(height=circleThickness){
-            circle(nubRadius);
+            circle(r);
         }
 
 }
@@ -83,10 +83,10 @@ module headNub(){
 braceCircle();
 braceSupport();
 
-translate([braceRadius + supportHeight - (nubRadius + 1),nubRadius-.5,-circleThickness])
+translate([braceRadius + supportHeight - (nubRadius + 1.5),nubRadius,-circleThickness])
     headNub();
-translate([braceRadius - (nubRadius),nubRadius - .5, -circleThickness])
-    headNub();
+translate([braceRadius - (nubRadius + 1.5),1.5, -circleThickness])
+    headNub(1.5);
 
 translate([0,braceRadius - (nubRadius), -circleThickness])
     headNub();
