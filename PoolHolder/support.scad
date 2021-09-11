@@ -83,8 +83,8 @@ module headNub(r = nubRadius){
 braceCircle();
 braceSupport();
 
-translate([braceRadius + supportHeight - (nubRadius + 1.5),nubRadius,-circleThickness])
-    headNub();
+//translate([braceRadius + supportHeight - (nubRadius + 1.5),nubRadius,-circleThickness])
+    //headNub();
 translate([braceRadius - (nubRadius + 1.5),1.5, -circleThickness])
     headNub(1.5);
 
