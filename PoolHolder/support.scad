@@ -7,13 +7,13 @@ braceRadius=100;
 circleThickness=25;
 supportHeight=100;
 screwHoldSpacing=25;
-circleBulk=5;
-braceThickness=5;
+circleBulk=6;
+braceThickness=6;
 
 screwSpacing=25;
-screwStart=screwSpacing;
+screwStart=screwSpacing - circleBulk;
 
-m3Radius=1.5;
+m3Radius=2;
 
 nubRadius=3;
 
@@ -48,7 +48,7 @@ module braceCircle(){
 
 module braceSupport(){
     difference(){
-        translate([braceRadius - circleBulk, 0,-circleThickness])
+        translate([braceRadius - (circleBulk), 0,-circleThickness])
             cube([supportHeight,braceThickness,circleThickness]);
         screw(0);
         screw(1);
@@ -60,7 +60,7 @@ module braceSupport(){
 module screw(holeIndex = 0){
     $fn=50;
     holeCentre = screwStart + (holeIndex * screwSpacing);
-    holeBraceOffset = holeCentre + braceRadius + circleBulk;
+    holeBraceOffset = holeCentre + braceRadius;
     //move it to the brace bracketOffset
     //holeCentre=holeCentre + braceRadius - circleBulk;
 
@@ -85,8 +85,8 @@ braceSupport();
 
 //translate([braceRadius + supportHeight - (nubRadius + 1.5),nubRadius,-circleThickness])
     //headNub();
-translate([braceRadius - (nubRadius + 1.5),1.5, -circleThickness])
-    headNub(1.5);
+//translate([braceRadius - (nubRadius + 1.5),1.5, -circleThickness])
+    //headNub(1.5);
 
 translate([0,braceRadius - (nubRadius), -circleThickness])
     headNub();
