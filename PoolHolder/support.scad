@@ -7,15 +7,15 @@ braceRadius=100;
 circleThickness=25;
 supportHeight=100;
 screwHoldSpacing=25;
-circleBulk=3;
-braceThickness=3;
+circleBulk=5;
+braceThickness=5;
 
 screwSpacing=25;
 screwStart=screwSpacing + circleBulk;
 
 m3Radius=1.5;
 
-nubRadius=2;
+nubRadius=3;
 
 
 module braceCircle(){
