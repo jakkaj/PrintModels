@@ -1,3 +1,4 @@
+
 //===========================================================================
 //
 // PiPro Pi Case designed to mimic the 2019 Mac Pro look.
@@ -14,7 +15,7 @@
 //===========================================================================
 
 //Adapted by Jordan Knight to be a external ssd shelf for the Pi 4. 
-
+//Now contains skadis shelf hole (for https://www.thingiverse.com/thing:2853261 Skadis_Shelf_Hook
 
 
 sqrt3=sqrt(3);
@@ -33,7 +34,9 @@ bracketOffset=65;
 PCBBase=baseGap+PCBThick;
 
 BoardSize=[85,56];
- 
+
+
+
 module outline(r=3){   
    hull()
    for (point=[[3,3],[3,53],[82,3],[82,53]]){
@@ -65,8 +68,12 @@ module bottomShell() {
     
     USBSlotB(29);
     
+    //9.8 x 4.2
+    translate([71,26,6])
+    cube([9.8, 4.2, 5]);
  
   }
+  
 }
 
 module base() {
